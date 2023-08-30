@@ -12,5 +12,13 @@
         <input type="file" name="file" />
         <input type = "submit" value="Upload">
     </form>
+
+    <hr>
+
+    <form action="/run_benford" method="POST">
+        <label for="column" style="display: block">Column index to process, negative indices refer to columns from end (Python-like index).</label>
+        <input type="number" id="column" name="column" value=0 style="display: block"></input>
+        <button type="submit" name="run_benford">Run</button>
+    </form>
 </body>
 </html>

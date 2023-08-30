@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import benford
 
 
 app = Flask(__name__)
@@ -20,6 +21,13 @@ def upload():
 		fdata = f.filename
 
 		return render_template('index.html')
+
+@app.route("/run_benford", methods=["POST"])
+def run_benford():
+	col = request.form.get("column")
+	benford.process_file_and_save_plot(from_file='data.txt', col=int(col), title=fdata, to_file="static/benford.png")
+
+	return render_template('index.html')
 
 
 if __name__ == '__main__':
