@@ -49,7 +49,7 @@ def get_lead_digits_from_file(fname, col, num_headers=0):
     
     with open(fname) as fin:
         for _ in range(num_headers):
-            fin.readline()  # Skip headers
+            fin.readline(5_000_000)  # Skip headers
 
         for line in fin.readlines():
             pop = line.split()[col]
